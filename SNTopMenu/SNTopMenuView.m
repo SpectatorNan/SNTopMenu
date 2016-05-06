@@ -85,19 +85,7 @@
     
     for (NSString *title in self.titleGruops) {
         
-        SNTopMenuSubView *subView;// = [SNTopMenuSubView new];
-        
-        
-       
-        
-        if (!lastView) {
-            
-//        [subView setFrame:CGRectMake(0, 0, [self current_w]/5, [self current_h])];
-            subView = [[SNTopMenuSubView alloc] initWithFrame:CGRectMake(0, 0, [self current_w]/5, [self current_h])];
-        } else {
-            subView = [[SNTopMenuSubView alloc] initWithFrame:CGRectMake([lastView current_max_x]+10, 0, [self current_w]/5, [self current_h])];
-//            [subView setFrame:CGRectMake([lastView current_max_x]+10, 0, [self current_w]/5, [self current_h])];
-        }
+        SNTopMenuSubView *subView = [[SNTopMenuSubView alloc] initWithFrame:CGRectMake(lastView?[lastView current_max_x]+10:0, 0, [self current_w]/5, [self current_h])];
         
         subView.titleLabel.text = title;
         subView.meunIndexPath = count;
@@ -115,5 +103,7 @@
 - (void)setting {
     
     self.bounces = NO;
+    self.showsVerticalScrollIndicator = NO;
+    self.showsHorizontalScrollIndicator = NO;
 }
 @end

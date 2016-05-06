@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SNTopContentView : UIView
+@interface SNTopContentView : UIScrollView
 
 @end

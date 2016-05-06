@@ -19,6 +19,8 @@
 		74CD48161CDC5850004AD64E /* SNTopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CD48151CDC5850004AD64E /* SNTopMenuView.m */; };
 		74CD48191CDC5868004AD64E /* SNTopContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CD48181CDC5868004AD64E /* SNTopContentView.m */; };
 		74CD481C1CDC77DC004AD64E /* UIView+FramePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CD481B1CDC77DC004AD64E /* UIView+FramePoint.m */; };
+		74CD481E1CDC959B004AD64E /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CD481D1CDC959B004AD64E /* Reveal.framework */; };
+		74CD48201CDC964E004AD64E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CD481F1CDC964E004AD64E /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		74CD48181CDC5868004AD64E /* SNTopContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNTopContentView.m; sourceTree = "<group>"; };
 		74CD481A1CDC77DC004AD64E /* UIView+FramePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FramePoint.h"; sourceTree = "<group>"; };
 		74CD481B1CDC77DC004AD64E /* UIView+FramePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FramePoint.m"; sourceTree = "<group>"; };
+		74CD481D1CDC959B004AD64E /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		74CD481F1CDC964E004AD64E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74CD48201CDC964E004AD64E /* libz.tbd in Frameworks */,
+				74CD481E1CDC959B004AD64E /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +99,7 @@
 		74CD47D21CDC5706004AD64E = {
 			isa = PBXGroup;
 			children = (
+				74CD481F1CDC964E004AD64E /* libz.tbd */,
 				74CD47DD1CDC5706004AD64E /* SNTopMenu */,
 				74CD47F71CDC5706004AD64E /* SNTopMenuTests */,
 				74CD48021CDC5706004AD64E /* SNTopMenuUITests */,
@@ -113,6 +120,7 @@
 		74CD47DD1CDC5706004AD64E /* SNTopMenu */ = {
 			isa = PBXGroup;
 			children = (
+				74CD481D1CDC959B004AD64E /* Reveal.framework */,
 				74CD47E11CDC5706004AD64E /* AppDelegate.h */,
 				74CD47E21CDC5706004AD64E /* AppDelegate.m */,
 				74CD47E41CDC5706004AD64E /* ViewController.h */,
@@ -437,8 +445,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SNTopMenu",
+				);
 				INFOPLIST_FILE = SNTopMenu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sepctatornan.SNTopMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -448,8 +462,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SNTopMenu",
+				);
 				INFOPLIST_FILE = SNTopMenu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sepctatornan.SNTopMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

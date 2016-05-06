@@ -46,17 +46,29 @@
 
 @implementation SNTopMenuView
 
+
+- (NSArray<NSString *> *)titleGruops {
+    
+    if (!_titleGruops) {
+        _titleGruops = @[@"111",@"222",@"333",@"444",@"666",@"777",@"888"];
+    }
+    return _titleGruops;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
     
     if (self) {
         
-       
+        [self createUI];
+        [self setting];
     }
     
     return self;
 }
+
+
 
 #pragma mark -- 添加子视图
 
@@ -64,29 +76,44 @@
     
     UIView *lastView;
     NSInteger count = 0;
+    
+    NSLog(@"fram -- %@",self);
+    
+    NSLog(@"width -- %f",[self current_w]);
+    
+    NSLog(@"height -- %f",[self current_h]);
+    
     for (NSString *title in self.titleGruops) {
         
-        SNTopMenuSubView *subView = [SNTopMenuSubView new];
-        [self addSubview:subView];
+        SNTopMenuSubView *subView;// = [SNTopMenuSubView new];
         
-        subView.titleLabel.text = title;
-        subView.meunIndexPath = count;
+        
+       
         
         if (!lastView) {
             
-        [subView setFrame:CGRectMake(0, 0, [self current_w]/5, [self current_h])];
+//        [subView setFrame:CGRectMake(0, 0, [self current_w]/5, [self current_h])];
+            subView = [[SNTopMenuSubView alloc] initWithFrame:CGRectMake(0, 0, [self current_w]/5, [self current_h])];
         } else {
-            
-            [subView setFrame:CGRectMake([lastView current_max_x], 0, [self current_w]/5, [self current_h])];
+            subView = [[SNTopMenuSubView alloc] initWithFrame:CGRectMake([lastView current_max_x]+10, 0, [self current_w]/5, [self current_h])];
+//            [subView setFrame:CGRectMake([lastView current_max_x]+10, 0, [self current_w]/5, [self current_h])];
         }
+        
+        subView.titleLabel.text = title;
+        subView.meunIndexPath = count;
+        subView.backgroundColor = [UIColor lightGrayColor];
+        [self addSubview:subView];
         
         lastView = subView;
         count++;
     }
+    
+    self.contentSize = CGSizeMake([lastView current_max_x], [self current_h]);
 }
 
 
 - (void)setting {
     
+    self.bounces = NO;
 }
 @end

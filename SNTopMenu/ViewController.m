@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SNTopMenuMainView.h"
 
 @interface ViewController ()
 
@@ -17,9 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    [self createUI];
 }
 
 - (void)createUI {
+    
+    SNTopMenuMainView *mainView = [[SNTopMenuMainView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:mainView];
     
 }
 

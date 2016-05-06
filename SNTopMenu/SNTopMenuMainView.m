@@ -43,20 +43,20 @@
 // 添加顶部菜单
 - (void)createMenu {
     
-    SNTopMenuView *menu = [SNTopMenuView new];
+    SNTopMenuView *menu = [[SNTopMenuView alloc] initWithFrame:CGRectMake(0, 5, self.bounds.size.width, 30)];
     [self addSubview:menu];
     
     self.menu = menu;
-    [self.menu setFrame:CGRectMake(0, 0, self.bounds.size.width, 30)];
+    
 }
 // 添加内容视图
 - (void)createContent {
     
-    SNTopContentView *content = [SNTopContentView new];
+    SNTopContentView *content = [[SNTopContentView alloc]initWithFrame:CGRectMake(0, [self.menu current_max_y], self.bounds.size.width, self.bounds.size.height-[self.menu current_max_y])];
     [self addSubview:content];
     
     self.content = content;
-    [self.content setFrame:CGRectMake(0, [self.menu current_max_y], self.bounds.size.width, self.bounds.size.height-[self.menu current_h])];
+ 
 }
 
 #pragma mark -- 布局设置

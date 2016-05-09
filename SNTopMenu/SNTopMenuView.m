@@ -9,6 +9,7 @@
 #import "SNTopMenuView.h"
 #import "UIView+FramePoint.h"
 
+#pragma mark -- 菜单子视图
 @interface SNTopMenuSubView : UIView
 
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -43,17 +44,17 @@
 
 @end
 
-
+#pragma mark -- 菜单父视图
 @implementation SNTopMenuView
 
 
-- (NSArray<NSString *> *)titleGruops {
-    
-    if (!_titleGruops) {
-        _titleGruops = @[@"111",@"222",@"333",@"444",@"666",@"777",@"888"];
-    }
-    return _titleGruops;
-}
+//- (NSArray<NSString *> *)titleGruops {
+//    
+//    if (!_titleGruops) {
+//        _titleGruops = @[@"111",@"222",@"333",@"444",@"666",@"777",@"888"];
+//    }
+//    return _titleGruops;
+//}
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
@@ -61,14 +62,18 @@
     
     if (self) {
         
-        [self createUI];
+//        [self createUI];
         [self setting];
     }
     
     return self;
 }
 
-
+- (void)setTitleGruops:(NSArray<NSString *> *)titleGruops {
+    _titleGruops = titleGruops;
+    
+    [self createUI];
+}
 
 #pragma mark -- 添加子视图
 
@@ -77,15 +82,11 @@
     UIView *lastView;
     NSInteger count = 0;
     
-    NSLog(@"fram -- %@",self);
-    
-    NSLog(@"width -- %f",[self current_w]);
-    
-    NSLog(@"height -- %f",[self current_h]);
+
     
     for (NSString *title in self.titleGruops) {
         
-        SNTopMenuSubView *subView = [[SNTopMenuSubView alloc] initWithFrame:CGRectMake(lastView?[lastView current_max_x]+10:0, 0, [self current_w]/5, [self current_h])];
+        SNTopMenuSubView *subView = [[SNTopMenuSubView alloc] initWithFrame:CGRectMake(lastView?[lastView current_max_x]+5:10, 0, [self current_w]/5, [self current_h])];
         
         subView.titleLabel.text = title;
         subView.meunIndexPath = count;

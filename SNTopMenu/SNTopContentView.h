@@ -10,4 +10,10 @@
 
 @interface SNTopContentView : UIScrollView
 
+@property (nonatomic, strong) NSArray *contentGroups;
+
+typedef void(^addressName)(NSString *addressName);
+@property (nonatomic, copy) addressName addressName;
+
+
 @end

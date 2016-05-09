@@ -24,8 +24,22 @@
 
 - (void)createUI {
     
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"ShoppingCartData" ofType:@"plist"];
+    
+    NSDictionary *dic = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+    
+    NSDictionary *provinceDic = dic[@"province"];
+    NSDictionary *menuDic = @{
+                              @"content":provinceDic,
+                              @"title" : @[@"省",@"市",@"县/区",@"街道/镇"]
+                              };
+    
+    
+    
     SNTopMenuMainView *mainView = [[SNTopMenuMainView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:mainView];
+    
+    mainView.menuTotalDic = menuDic;
     
 }
 

@@ -33,6 +33,20 @@
     return self;
 }
 
+#pragma mark -- 数据处理
+- (void)setMenuTotalDic:(NSDictionary *)menuTotalDic {
+    _menuTotalDic = menuTotalDic;
+    self.menu.titleGruops = menuTotalDic[@"title"];
+    NSDictionary *mainDic = menuTotalDic[@"content"];
+    
+    NSArray *provinceArr = mainDic.allKeys;
+    
+//    NSMutableArray *city
+    
+    
+    self.content.contentGroups = provinceArr;
+}
+
 #pragma mark -- 添加子视图
 - (void)creatAllView {
     
@@ -47,6 +61,7 @@
     [self addSubview:menu];
     
     self.menu = menu;
+ 
     
 }
 // 添加内容视图

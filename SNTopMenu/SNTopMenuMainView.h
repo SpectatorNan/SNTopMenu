@@ -12,5 +12,5 @@
 
 @property (nonatomic, assign) CGFloat menuHeight;
 
-
+@property (nonatomic, strong) NSDictionary *menuTotalDic;
 @end

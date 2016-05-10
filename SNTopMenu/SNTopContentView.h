@@ -17,4 +17,5 @@ typedef void(^addressName)(NSString *addressName);
 @property (nonatomic, copy) addressName addressName;
 
 
+
 @end

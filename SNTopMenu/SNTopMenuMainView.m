@@ -60,7 +60,7 @@
     SNTopMenuView *menu = [[SNTopMenuView alloc] initWithFrame:CGRectMake(0, 5, self.bounds.size.width, 30)];
     [self addSubview:menu];
     menu.menuDelegate = self;
-    menu.scrollDelegate = self;
+    
     self.menu = menu;
  
     
@@ -71,6 +71,7 @@
     SNTopContentView *content = [[SNTopContentView alloc]initWithFrame:CGRectMake(0, [self.menu current_max_y], self.bounds.size.width, self.bounds.size.height-[self.menu current_max_y])];
     [self addSubview:content];
     
+    content.delegate = self;
     self.content = content;
  
 }
@@ -92,6 +93,14 @@
 }
 
 #pragma mark -- UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    self.menu.selectMenuIndexPath = scrollView.contentOffset.x/[self current_w];
+}
 
 @end
 

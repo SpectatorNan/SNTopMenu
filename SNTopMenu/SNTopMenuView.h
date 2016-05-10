@@ -11,7 +11,6 @@
 @protocol SNTopMenuViewDelegate;
 @interface SNTopMenuView : UIScrollView
 
-@property (nonatomic, weak) id<UIScrollViewDelegate> scrollDelegate;
 
 @property (nonatomic, weak) id<SNTopMenuViewDelegate> menuDelegate;
 

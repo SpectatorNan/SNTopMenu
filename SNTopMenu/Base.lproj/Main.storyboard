@@ -18,11 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="yE8-VQ-y1b"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="346"/>
+            <point key="canvasLocation" x="1374" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="puj-FT-ZYf">
@@ -40,7 +42,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="27K-EY-feu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="934" y="339"/>
+            <point key="canvasLocation" x="636" y="349"/>
         </scene>
     </scenes>
 </document>

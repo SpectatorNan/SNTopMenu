@@ -39,12 +39,12 @@
     self.menu.titleGruops = menuTotalDic[@"title"];
     NSDictionary *mainDic = menuTotalDic[@"content"];
     
-    NSArray *provinceArr = mainDic.allKeys;
+//    NSArray *provinceArr = mainDic.allKeys;
     
 //    NSMutableArray *city
     
-    
-    self.content.contentGroups = provinceArr;
+    self.content.contentDic = mainDic;
+//    self.content.contentGroups = provinceArr;
 }
 
 #pragma mark -- 添加子视图

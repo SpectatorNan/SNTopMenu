@@ -8,7 +8,8 @@
 
 #import "SNTopMenuView.h"
 #import "UIView+FramePoint.h"
-
+#import "SNTopMenuSubVIew.h"
+/*
 #pragma mark -- 菜单子视图
 @interface SNTopMenuSubView : UIView
 
@@ -16,9 +17,12 @@
 
 @property (nonatomic, assign) NSInteger meunIndexPath;
 
+@property (nonatomic, assign) BOOL selected;
+
 @end
 
 @implementation SNTopMenuSubView
+
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
@@ -43,8 +47,12 @@
 }
 
 @end
-
+*/
 #pragma mark -- 菜单父视图
+@interface SNTopMenuView()<SNRadioButtonDelegate>
+
+
+@end
 @implementation SNTopMenuView
 
 
@@ -86,12 +94,19 @@
     
     for (NSString *title in self.titleGruops) {
         
-        SNTopMenuSubView *subView = [[SNTopMenuSubView alloc] initWithFrame:CGRectMake(lastView?[lastView current_max_x]+5:10, 0, [self current_w]/5, [self current_h])];
-        
-        subView.titleLabel.text = title;
-        subView.meunIndexPath = count;
+//        SNTopMenuSubVIew *subView = [[SNTopMenuSubVIew alloc] initWithFrame:CGRectMake(lastView?[lastView current_max_x]+5:10, 0, [self current_w]/5, [self current_h])];
+        SNRadioButton *subView = [[SNRadioButton alloc] initWithDelegate:self groupId:@"menu"];
+        subView.frame = CGRectMake(lastView?[lastView current_max_x]+5:10, 0, [self current_w]/5, [self current_h]);
+//        subView.titleLabel.text = title;
+//        subView.meunIndexPath = count;
+//        subView.delegate = self;
+        subView.radioTitleLabel.text = title;
         subView.backgroundColor = [UIColor lightGrayColor];
         [self addSubview:subView];
+        
+        if (count == 0) {
+            subView.checked = YES;
+        }
         
         lastView = subView;
         count++;

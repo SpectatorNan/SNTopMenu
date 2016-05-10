@@ -19,6 +19,7 @@
 typedef void(^cityName)(NSString * cityname);
 @property (nonatomic, copy) cityName selectName;
 
+
 @end
 
 @implementation SNTopContentSubView
@@ -75,6 +76,13 @@ typedef void(^cityName)(NSString * cityname);
 @end
 
 #pragma mark -- 内容父视图
+@interface SNTopContentView()
+
+
+@property (nonatomic, strong) NSMutableArray *contentListArr;
+
+@end
+
 @implementation SNTopContentView
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -89,8 +97,42 @@ typedef void(^cityName)(NSString * cityname);
     return self;
 }
 
+- (NSMutableArray *)contentListArr {
+    
+    if (!_contentListArr) {
+        _contentListArr = [NSMutableArray array];
+    }
+    
+    return _contentListArr;
+}
+
+#pragma mark -- 数据处理
 - (void)setContentGroups:(NSArray *)contentGroups {
     _contentGroups = contentGroups;
+    
+    [self createUI];
+  
+}
+
+- (void)setContentDic:(NSDictionary *)contentDic {
+    
+    _contentDic = contentDic;
+    
+    NSArray *provinceArr = contentDic.allKeys;
+    
+    NSDictionary *cityDic = contentDic[@"湖南省"];
+    NSArray *cityArr = cityDic.allKeys;
+    
+    NSDictionary *areaDic = cityDic[@"长沙市"];
+    NSArray *areaArr = areaDic.allKeys;
+    
+    NSArray *roadArr = areaDic[@"雨花区"];
+    
+    
+    [self.contentListArr addObject:provinceArr];
+    [self.contentListArr addObject:cityArr];
+    [self.contentListArr addObject:areaArr];
+    [self.contentListArr addObject:roadArr];
     
     [self createUI];
 }
@@ -100,20 +142,21 @@ typedef void(^cityName)(NSString * cityname);
     UIView *lastView;
     NSInteger count = 0;
     
-    for (NSArray *array in self.contentGroups) {
+    for (NSArray *array in self.contentListArr) {
         
         SNTopContentSubView *subView = [[SNTopContentSubView alloc] initWithFrame:CGRectMake(lastView?[lastView current_max_x]:0, 0, [self current_w], [self current_h])];
         
-        subView.tableArr = self.contentGroups;
+        subView.tableArr = array;
         subView.contentIndexPath = count;
         
         __weak __typeof(&*self)weakSelf = self;
         __block NSString *address = @"";
+        __weak SNTopContentSubView *weakSubView = subView;
         subView.selectName = ^(NSString * cityname){
             
             address = [NSString stringWithFormat:@"%@%@",address,cityname];
-            
-            if (weakSelf.addressName&&count==self.contentGroups.count-1) {
+            NSLog(@"打印当前点击页面的号码---%ld",weakSubView.contentIndexPath);
+            if (weakSelf.addressName&&subView.contentIndexPath==self.contentListArr.count-1) {
                 weakSelf.addressName(cityname);
             }
             

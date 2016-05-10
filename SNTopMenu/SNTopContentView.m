@@ -43,6 +43,7 @@ typedef void(^cityName)(NSString * cityname);
     
     listTable.delegate = self;
     listTable.dataSource = self;
+    listTable.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark -- UITableViewDataSource
@@ -60,6 +61,10 @@ typedef void(^cityName)(NSString * cityname);
     }
     
     cell.textLabel.text = self.tableArr[indexPath.row];
+    
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 43, [self current_w], 1)];
+    line.backgroundColor = [UIColor blackColor];
+    [cell.contentView addSubview:line];
     
     return cell;
 }

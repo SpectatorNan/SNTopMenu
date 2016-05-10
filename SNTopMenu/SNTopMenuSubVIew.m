@@ -10,5 +10,12 @@
 
 @implementation SNTopMenuSubVIew
 
++ (instancetype)SNTopMenuWithTarget:(id)target frame:(CGRect)frame {
+    
+    SNTopMenuSubVIew *menu = [[SNTopMenuSubVIew alloc] initWithDelegate:target groupId:@"menu"];
+    menu.frame = frame;
+    
+    return menu;
+}
 
 @end

@@ -12,7 +12,7 @@
 #import "UIView+FramePoint.h"
 
 
-@interface SNTopMenuMainView ()
+@interface SNTopMenuMainView ()<SNTopMenuViewDelegate,UIScrollViewDelegate>
 
 @property (nonatomic, strong) SNTopMenuView *menu;
 
@@ -59,7 +59,8 @@
     
     SNTopMenuView *menu = [[SNTopMenuView alloc] initWithFrame:CGRectMake(0, 5, self.bounds.size.width, 30)];
     [self addSubview:menu];
-    
+    menu.menuDelegate = self;
+    menu.scrollDelegate = self;
     self.menu = menu;
  
     
@@ -83,6 +84,16 @@
     [self.content setFrame:CGRectMake(0, [self.menu current_max_y], self.bounds.size.width, self.bounds.size.height-[self.menu current_h])];
 }
 
+#pragma mark -- SNTopMenuViewDelegate
+
+- (void)didSelectedMenuView:(SNTopMenuView *)menu indexPath:(NSInteger)indexPath {
+    
+    self.content.contentOffset = CGPointMake([self current_w]*indexPath, 0);
+}
+
+#pragma mark -- UIScrollViewDelegate
+
 @end
+
 
 

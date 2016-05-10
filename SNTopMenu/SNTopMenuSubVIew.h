@@ -12,4 +12,5 @@
 
 @property (nonatomic, assign) NSInteger menuIndexPath;
 
++ (instancetype)SNTopMenuWithTarget:(id)target frame:(CGRect)frame;
 @end

@@ -8,6 +8,7 @@
 
 #import "SNTopContentView.h"
 #import "UIView+FramePoint.h"
+#import "SNTopMenuViewModel.h"
 
 #pragma mark -- 内容子视图
 @interface SNTopContentSubView : UIView <UITableViewDelegate,UITableViewDataSource>
@@ -122,7 +123,7 @@ typedef void(^cityName)(NSString * cityname);
 - (void)setContentDic:(NSDictionary *)contentDic {
     
     _contentDic = contentDic;
-    
+/*
     NSArray *provinceArr = contentDic.allKeys;
     
     NSDictionary *cityDic = contentDic[@"湖南省"];
@@ -138,6 +139,13 @@ typedef void(^cityName)(NSString * cityname);
     [self.contentListArr addObject:cityArr];
     [self.contentListArr addObject:areaArr];
     [self.contentListArr addObject:roadArr];
+  */
+    __weak typeof (self) weakSelf = self;
+    
+    SNTopMenuViewModel *viewModel = [SNTopMenuViewModel new];
+    [viewModel handleWithContentData:contentDic complete:^(NSArray *contentArr) {
+        [weakSelf.contentListArr addObject:contentArr];
+    }];
     
     [self createUI];
 }

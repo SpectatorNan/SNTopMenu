@@ -10,6 +10,7 @@
 #import "SNTopMenuView.h"
 #import "SNTopContentView.h"
 #import "UIView+FramePoint.h"
+#import "SNTopMenuViewModel.h"
 
 
 @interface SNTopMenuMainView ()<SNTopMenuViewDelegate,UIScrollViewDelegate>
@@ -36,15 +37,19 @@
 #pragma mark -- 数据处理
 - (void)setMenuTotalDic:(NSDictionary *)menuTotalDic {
     _menuTotalDic = menuTotalDic;
-    self.menu.titleGruops = menuTotalDic[@"title"];
-    NSDictionary *mainDic = menuTotalDic[@"content"];
+
+    __weak typeof (self) weakSelf = self;
+
+    SNTopMenuViewModel *menuViewModel = [SNTopMenuViewModel new];
     
-//    NSArray *provinceArr = mainDic.allKeys;
+    [menuViewModel handleWithTatolData:menuTotalDic complete:^(NSArray *menuTitleArr, NSDictionary *contentDic) {
+        
+        weakSelf.menu.titleGruops = menuTitleArr;
+        
+        weakSelf.content.contentDic = contentDic;
+    }];
     
-//    NSMutableArray *city
     
-    self.content.contentDic = mainDic;
-//    self.content.contentGroups = provinceArr;
 }
 
 #pragma mark -- 添加子视图

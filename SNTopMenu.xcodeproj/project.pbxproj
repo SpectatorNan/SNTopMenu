@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		743633CE1CE190F500CFD3A7 /* SNRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 743633CD1CE190F500CFD3A7 /* SNRadioButton.m */; };
 		743633D11CE1BC1200CFD3A7 /* SNTopMenuSubVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 743633D01CE1BC1200CFD3A7 /* SNTopMenuSubVIew.m */; };
+		743633D41CE2B4A700CFD3A7 /* SNTopMenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 743633D31CE2B4A700CFD3A7 /* SNTopMenuViewModel.m */; };
 		748872401CE0377400A59C44 /* ShoppingCartData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7488723F1CE0377400A59C44 /* ShoppingCartData.plist */; };
 		74CD47E01CDC5706004AD64E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CD47DF1CDC5706004AD64E /* main.m */; };
 		74CD47E31CDC5706004AD64E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CD47E21CDC5706004AD64E /* AppDelegate.m */; };
@@ -48,6 +49,8 @@
 		743633CD1CE190F500CFD3A7 /* SNRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNRadioButton.m; path = SNRadioButton/SNRadioButton.m; sourceTree = "<group>"; };
 		743633CF1CE1BC1200CFD3A7 /* SNTopMenuSubVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNTopMenuSubVIew.h; sourceTree = "<group>"; };
 		743633D01CE1BC1200CFD3A7 /* SNTopMenuSubVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNTopMenuSubVIew.m; sourceTree = "<group>"; };
+		743633D21CE2B4A700CFD3A7 /* SNTopMenuViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNTopMenuViewModel.h; sourceTree = "<group>"; };
+		743633D31CE2B4A700CFD3A7 /* SNTopMenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNTopMenuViewModel.m; sourceTree = "<group>"; };
 		7488723F1CE0377400A59C44 /* ShoppingCartData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShoppingCartData.plist; sourceTree = "<group>"; };
 		74CD47DB1CDC5706004AD64E /* SNTopMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNTopMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74CD47DF1CDC5706004AD64E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				74CD481B1CDC77DC004AD64E /* UIView+FramePoint.m */,
 				743633CF1CE1BC1200CFD3A7 /* SNTopMenuSubVIew.h */,
 				743633D01CE1BC1200CFD3A7 /* SNTopMenuSubVIew.m */,
+				743633D21CE2B4A700CFD3A7 /* SNTopMenuViewModel.h */,
+				743633D31CE2B4A700CFD3A7 /* SNTopMenuViewModel.m */,
 			);
 			name = SNTopMenuView;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				74CD481C1CDC77DC004AD64E /* UIView+FramePoint.m in Sources */,
 				743633CE1CE190F500CFD3A7 /* SNRadioButton.m in Sources */,
 				74CD48161CDC5850004AD64E /* SNTopMenuView.m in Sources */,
+				743633D41CE2B4A700CFD3A7 /* SNTopMenuViewModel.m in Sources */,
 				743633D11CE1BC1200CFD3A7 /* SNTopMenuSubVIew.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -96,7 +96,7 @@ typedef void(^cityName)(NSString * cityname);
     self = [super initWithFrame:frame];
     
     if (self) {
-//        [self createUI];
+
         [self setting];
     }
     

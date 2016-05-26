@@ -45,7 +45,9 @@ static NSMutableDictionary *contentArrDic = nil;
     
     if ([data isKindOfClass:[NSDictionary class]]) {
         NSDictionary *contentDic = (NSDictionary *)data;
-        if ([contentDic[contentDic.allKeys[0]] hasSuffix:@"省"]) {
+        
+        
+        if ([contentDic.allKeys[0] hasSuffix:@"省"]) {
             [self addToDicValue:contentDic.allKeys forKey:provinceKey];
             
         } else if ([contentDic[contentDic.allKeys[0]] hasSuffix:@"市"]) {
